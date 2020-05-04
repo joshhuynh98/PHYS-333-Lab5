@@ -17,7 +17,7 @@ float minTemp = 100;
 float maxHum = 0;
 float minHum = 100;
 
-float t0;
+long t0;
 
 void setup() {
   Serial.begin(9600);
@@ -93,8 +93,9 @@ void loop() {
     lcd.setCursor(11,1);
     lcd.print(maxHum,1);
   }
-  
-  Serial.print("Humidity:    "); Serial.print(hum, 2);
-  Serial.print("\tTemperature: "); Serial.println(temp, 2);
+
+  Serial.print(millis() / 1000);
+  Serial.print("\t"); Serial.print(hum, 2);
+  Serial.print("\t"); Serial.println(temp, 2);
   delay(1000);
 }
